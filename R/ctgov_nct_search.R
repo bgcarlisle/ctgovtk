@@ -49,7 +49,7 @@ ctgov_nct_search <- function (nctids, batch_size = 500) {
             tibble::as_tibble() %>%
             dplyr::rename(nctid = "value") %>%
             dplyr::mutate(
-                       "batch" = ceiling(
+                       batch = ceiling(
                            dplyr::row_number()/batch_size
                        )
                    )
@@ -63,7 +63,7 @@ ctgov_nct_search <- function (nctids, batch_size = 500) {
             ## string
             query_nctids <- trials %>%
                 dplyr::filter(.data$batch == i) %>%
-                dplyr::pull("nctid") %>%
+                dplyr::pull(.data$nctid) %>%
                 paste(collapse=",")
 
             ## Download the clinical trial registry data for all the
