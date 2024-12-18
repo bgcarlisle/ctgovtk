@@ -83,7 +83,8 @@ ctgov_ncts <- function (nctids, batch_size = 500) {
         quiet = FALSE
       )
       ## Read into memory and combine with previous download
-      json <- c(json, jsonlite::read_json(tmp))
+      response <- jsonlite::read_json(tmp)
+      json <- c(json, response$studies)
       ## Delete temporary file
       unlink(tmp)
 
