@@ -20,7 +20,7 @@
 #' @importFrom rlang .data
 #'
 
-ctgov_nct_search <- function (nctids, batch_size = 500) {
+ctgov_ncts <- function (nctids, batch_size = 500) {
 
     out <- tryCatch({
         
@@ -73,9 +73,8 @@ ctgov_nct_search <- function (nctids, batch_size = 500) {
                 utils::URLencode(
                     paste0(
                         ## API connexion details:
-                        "https://clinicaltrials.gov/",
-                        "api/int/studies/download?",
-                        "format=json&filter.ids=",
+                        "https://clinicaltrials.gov/api/v2/studies?",
+                        "filter.ids=",
                         ## NCT numbers:
                         query_nctids
                     )

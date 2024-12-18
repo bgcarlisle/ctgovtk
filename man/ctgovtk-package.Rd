@@ -12,7 +12,7 @@ A toolkit providing various functions for interacting with ClinicalTrials.gov.
 This package provides various functions for interacting
 with ClinicalTrials.gov
 
-ctgov_nct_search() returns a set of trial data from
+ctgov_nct() returns a set of trial data from
 ClinicalTrials.gov based on a search of NCT Numbers
 }
 \references{
