@@ -43,7 +43,10 @@ result[[2]]$protocolSection$identificationModule$briefTitle
 
 ## Extract all the Brief Title fields
 for (i in 1:length(result)) {
-  result[[i]]$protocolSection$identificationModule$briefTitle
+  ## Print them all out in the R console
+  message(
+    result[[i]]$protocolSection$identificationModule$briefTitle
+  )
 }
 
 ```
