@@ -75,3 +75,45 @@ result <- ctgov_query(
   "AREA[LastUpdatePostDate]RANGE[2023-01-15,2023-01-20]"
 )
 ```
+
+### `extract_age_range()`
+
+Take an ordered list of the type produced by the functions
+`ctgov_ncts()` or `ctgov_query()` and extract the minimum and maximum
+age of trial participants for each one, indexed by their NCT Number.
+
+Returns a data frame with one row per trial contained in the provided
+ordered list and three columns:
+
+* `nctid`, the NCT Number of the trial in question
+* `min_age`, the minimum trial participant age of the trial in
+  question (or NA if not provided)
+* `max_age`, the maximum trial participant age of the trial in
+  question (or NA if not provided)
+
+Example:
+```
+## Load package
+library(ctgovtk)
+
+## Download all the interventional trials with an overall status of
+## Completed or Terminated in phases 1-4, launched in 2023 or later
+## with a location in USA
+
+query <- paste(
+  "SEARCH[Location](AREA[LocationCountry]United States)",
+  "AREA[OverallStatus]COVER[FullMatch]('COMPLETED' OR 'TERMINATED')",
+  "AREA[Phase]COVER[FullMatch]('PHASE1' OR 'PHASE2' OR 'PHASE3' OR 'PHASE4')",
+  "AREA[StudyType]COVER[FullMatch]('INTERVENTIONAL')",
+  "AREA[StartDate]RANGE[01/01/2023,MAX]",
+  sep = " AND "
+)
+
+result <- ctgov_query(query)
+
+## Pull out the minimum and maximum ages for trial participants in the
+## clinical trial data returned by this search
+
+age_ranges <- extract_age_range(result)
+
+```

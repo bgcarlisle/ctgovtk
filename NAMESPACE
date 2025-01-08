@@ -2,5 +2,6 @@
 
 export(ctgov_ncts)
 export(ctgov_query)
+export(extract_age_range)
 importFrom(magrittr,"%>%")
 importFrom(rlang,.data)
