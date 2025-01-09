@@ -76,20 +76,38 @@ result <- ctgov_query(
 )
 ```
 
-### `extract_age_range()`
+### `extract_basic_info()`
 
-Take an ordered list of the type produced by the functions
-`ctgov_ncts()` or `ctgov_query()` and extract the minimum and maximum
-age of trial participants for each one, indexed by their NCT Number.
-
-Returns a data frame with one row per trial contained in the provided
-ordered list and three columns:
+This function takes an ordered list of the type produced by the
+functions `ctgov_ncts()` or `ctgov_query()` and extracts the following
+trial data for each one, indexed by their NCT Number, and returns a
+data frame with one row per trial contained in the provided ordered
+list and three columns:
 
 * `nctid`, the NCT Number of the trial in question
+* `brief_title`
+* `official_title`
+* `overall_status`
+* `phase`
+* `enrol`
+* `enrol_type`
 * `min_age`, the minimum trial participant age of the trial in
   question (or NA if not provided)
 * `max_age`, the maximum trial participant age of the trial in
   question (or NA if not provided)
+* `sex`
+* `healthy_volunteers`
+* `study_type`, INTERVENTIONAL or OBSERVATIONAL
+* `allocation`
+* `intervention_model`
+* `masking`
+* `primary_purpose`
+* `start_date`
+* `start_date_type`
+* `pc_date`, primary completion date
+* `pc_date_type`, primary completion date ACTUAL or ESTIMATED
+* `fp_date`, first posted date
+* `fp_date_type`, first posted date ACTUAL or ESTIMATED
 
 Example:
 ```

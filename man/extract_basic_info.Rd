@@ -19,7 +19,11 @@ official_title (a character string containing the official title
 for the trial in question), overall_status (a character string
 containing the trial's overall status), phase (the phase of the
 trial), enrol (enrolment count), enrol_type (ACTUAL or
-ESTIMATED), study_type (INTERVENTIONAL or OBSERVATIONAL),
+ESTIMATED), min_age (minimum participant age as an integer or
+NA), max_age (maximum participant age as an integer or NA), sex
+(character string describing the sex of participants),
+healthy_volunteers (Boolean, indicates whether healthy volunteers
+are enrolled), study_type (INTERVENTIONAL or OBSERVATIONAL),
 start_date (a character string containing an ISO-8601 formatted
 date, YYYY-MM-DD or YYYY-MM corresponding to the trial start),
 start_date_type (start date ACTUAL or ESTIMATED) pc_date (primary

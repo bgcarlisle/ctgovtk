@@ -19,7 +19,11 @@
 #'   for the trial in question), overall_status (a character string
 #'   containing the trial's overall status), phase (the phase of the
 #'   trial), enrol (enrolment count), enrol_type (ACTUAL or
-#'   ESTIMATED), study_type (INTERVENTIONAL or OBSERVATIONAL),
+#'   ESTIMATED), min_age (minimum participant age as an integer or
+#'   NA), max_age (maximum participant age as an integer or NA), sex
+#'   (character string describing the sex of participants),
+#'   healthy_volunteers (Boolean, indicates whether healthy volunteers
+#'   are enrolled), study_type (INTERVENTIONAL or OBSERVATIONAL),
 #'   start_date (a character string containing an ISO-8601 formatted
 #'   date, YYYY-MM-DD or YYYY-MM corresponding to the trial start),
 #'   start_date_type (start date ACTUAL or ESTIMATED) pc_date (primary
@@ -44,6 +48,8 @@ extract_basic_info <- function (ctgovdata) {
     ~phase,
     ~enrol,
     ~enrol_type,
+    ~min_age,
+    ~max_age,
     ~sex,
     ~healthy_volunteers,
     ~study_type,
@@ -84,6 +90,22 @@ extract_basic_info <- function (ctgovdata) {
     
     enrol_type <- ctgovdata[[i]]$protocolSection$designModule$enrollmentInfo$type
 
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$eligibilityModule$minimumAge)) {
+      min_age <- ctgovdata[[i]]$protocolSection$eligibilityModule$minimumAge %>%
+        stringr::str_extract("[0-9]+") %>%
+        as.numeric()
+    } else {
+      min_age <- NA
+    }
+
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$eligibilityModule$maximumAge)) {
+      max_age <- ctgovdata[[i]]$protocolSection$eligibilityModule$maximumAge %>%
+        stringr::str_extract("[0-9]+") %>%
+        as.numeric()
+    } else {
+      max_age <- NA
+    }
+    
     sex <- ctgovdata[[i]]$protocolSection$eligibilityModule$sex
 
     healthy_volunteers <- ctgovdata[[i]]$protocolSection$eligibilityModule$healthyVolunteers
@@ -92,7 +114,11 @@ extract_basic_info <- function (ctgovdata) {
 
     allocation <- ctgovdata[[i]]$protocolSection$designModule$designInfo$allocation
 
-    intervention_model <- ctgovdata[[i]]$protocolSection$designModule$designInfo$interventionModel
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$designModule$designInfo$interventionModel)) {
+      intervention_model <- ctgovdata[[i]]$protocolSection$designModule$designInfo$interventionModel
+    } else {
+      intervention_model <- NA
+    }
 
     masking <- ctgovdata[[i]]$protocolSection$designModule$designInfo$maskingInfo$masking
 
@@ -124,6 +150,8 @@ extract_basic_info <- function (ctgovdata) {
           ~phase,
           ~enrol,
           ~enrol_type,
+          ~min_age,
+          ~max_age,
           ~sex,
           ~healthy_volunteers,
           ~study_type,
@@ -145,6 +173,8 @@ extract_basic_info <- function (ctgovdata) {
           phase,
           enrol,
           enrol_type,
+          min_age,
+          max_age,
           sex,
           healthy_volunteers,
           study_type,
