@@ -110,6 +110,7 @@ list and three columns:
 * `fp_date_type`, first posted date ACTUAL or ESTIMATED
 
 Example:
+
 ```
 ## Load package
 library(ctgovtk)
@@ -132,6 +133,31 @@ result <- ctgov_query(query)
 ## Pull out the minimum and maximum ages for trial participants in the
 ## clinical trial data returned by this search
 
-age_ranges <- extract_age_range(result)
+trial_data <- extract_basic_info(result)
 
+```
+
+### `extract_outcome_measures()`
+
+This function takes an ordered list of the type produced by the
+functions `ctgov_ncts()` or `ctgov_query()` and extracts primary and
+secondary outcome measures for each one, indexed by their NCT Number,
+and returns a data frame with one row per outcome measure per trial
+and 5 columns: `nctid`, the NCT Number for the trial in question,
+`outcome_rank` (primary or secondary), `measure` (the name of the
+outcome), `description` (a longer description of the outcome), and
+`timeframe` (when the outcome is measured).
+
+Example:
+
+```
+## Load package
+library(ctgovtk)
+library(tidyverse)
+
+## Download all trial data for NCT05105412 and NCT06112340 and pull
+## out the outcome measures into a table
+
+ctgov_ncts(c("NCT06112340", "NCT01714739")) %>%
+  extract_outcome_measures()
 ```
