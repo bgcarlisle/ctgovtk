@@ -1,3 +1,5 @@
+#' Download trials by NCT
+#'
 #' Download a set of trial data from the ClinicalTrials.gov API by
 #' their NCT Numbers
 #'

@@ -1,3 +1,5 @@
+#' Extract age range
+#'
 #' Loops through all the entries in a set of trial data from the
 #' ClinicalTrials.gov API, extracts the NCT number, minimum age and
 #' maximum age for each and returns a data frame with those

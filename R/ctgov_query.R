@@ -1,3 +1,5 @@
+#' Download trials by search query
+#'
 #' Download a set of trial data from the ClinicalTrials.gov API by
 #' a search query
 #'

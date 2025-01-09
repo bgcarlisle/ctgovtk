@@ -2,13 +2,7 @@
 % Please edit documentation in R/extract_age_range.R
 \name{extract_age_range}
 \alias{extract_age_range}
-\title{Loops through all the entries in a set of trial data from the
-ClinicalTrials.gov API, extracts the NCT number, minimum age and
-maximum age for each and returns a data frame with those
-data. Please note that this function does not download trials from
-ClinicalTrials.gov; it parses trial data downloaded using the
-ctgov_ncts() or ctgov_query() function and expects the ordered list
-provided to be formatted in this manner.}
+\title{Extract age range}
 \usage{
 extract_age_range(ctgovdata)
 }

@@ -2,8 +2,7 @@
 % Please edit documentation in R/ctgov_ncts.R
 \name{ctgov_ncts}
 \alias{ctgov_ncts}
-\title{Download a set of trial data from the ClinicalTrials.gov API by
-their NCT Numbers}
+\title{Download trials by NCT}
 \usage{
 ctgov_ncts(nctids, batch_size = 500)
 }

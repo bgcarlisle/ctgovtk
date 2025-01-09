@@ -2,8 +2,7 @@
 % Please edit documentation in R/ctgov_query.R
 \name{ctgov_query}
 \alias{ctgov_query}
-\title{Download a set of trial data from the ClinicalTrials.gov API by
-a search query}
+\title{Download trials by search query}
 \usage{
 ctgov_query(query)
 }
