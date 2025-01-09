@@ -1,6 +1,6 @@
 Package: ctgovtk
 Title: ClinicalTrials.gov Toolkit
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: 
     person("Benjamin Gregory", "Carlisle", , "murph@bgcarlisle.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8975-0649"))
