@@ -130,8 +130,7 @@ query <- paste(
 
 result <- ctgov_query(query)
 
-## Pull out the minimum and maximum ages for trial participants in the
-## clinical trial data returned by this search
+## Pull out the basic info for clinical trials returned by this search
 
 trial_data <- extract_basic_info(result)
 
@@ -193,7 +192,7 @@ ctgov_query(
         "AREA[StudyType]COVER[FullMatch]INTERVENTIONAL",
         ## First posted in 2024 or later
         "AREA[StudyFirstPostDate]RANGE[2024-01-01, MAX]",
-        ## With an SAP, protocol or IC form
+        ## With an SAP, protocol and IC form
         "AREA[LargeDocHasSAP]TRUE",
         "AREA[LargeDocHasProtocol]TRUE",
         "AREA[LargeDocHasICF]TRUE",
