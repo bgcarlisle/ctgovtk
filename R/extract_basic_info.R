@@ -69,7 +69,9 @@ extract_basic_info <- function (ctgovdata) {
   ## the trial data
   for (i in 1:length(ctgovdata)) {
         
-    nctid <- ctgovdata[[i]]$protocolSection$identificationModule$nctId
+      nctid <- ctgovdata[[i]]$protocolSection$identificationModule$nctId
+
+      message(nctid)
 
     brief_title <- ctgovdata[[i]]$protocol$identificationModule$briefTitle
 
@@ -86,9 +88,17 @@ extract_basic_info <- function (ctgovdata) {
     }
     phase <- paste(phases, collapse="|")
 
-    enrol <- ctgovdata[[i]]$protocolSection$designModule$enrollmentInfo$count
-    
-    enrol_type <- ctgovdata[[i]]$protocolSection$designModule$enrollmentInfo$type
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$designModule$enrollmentInfo$count)) {
+      enrol <- ctgovdata[[i]]$protocolSection$designModule$enrollmentInfo$count
+    } else {
+        enrol <- NA
+    }
+
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$designModule$enrollmentInfo$type)) {
+      enrol_type <- ctgovdata[[i]]$protocolSection$designModule$enrollmentInfo$type
+    } else {
+        enrol_type <- NA
+    }
 
     if (! rlang::is_null(ctgovdata[[i]]$protocolSection$eligibilityModule$minimumAge)) {
       min_age <- ctgovdata[[i]]$protocolSection$eligibilityModule$minimumAge %>%
@@ -105,14 +115,30 @@ extract_basic_info <- function (ctgovdata) {
     } else {
       max_age <- NA
     }
-    
-    sex <- ctgovdata[[i]]$protocolSection$eligibilityModule$sex
 
-    healthy_volunteers <- ctgovdata[[i]]$protocolSection$eligibilityModule$healthyVolunteers
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$eligibilityModule$sex)) {
+      sex <- ctgovdata[[i]]$protocolSection$eligibilityModule$sex
+    } else {
+      sex <- NA
+    }
 
-    study_type <- ctgovdata[[i]]$protocolSection$designModule$studyType
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$eligibilityModule$healthyVolunteers)) {
+      healthy_volunteers <- ctgovdata[[i]]$protocolSection$eligibilityModule$healthyVolunteers
+    } else {
+        healthy_volunteers <- NA
+    }
 
-    allocation <- ctgovdata[[i]]$protocolSection$designModule$designInfo$allocation
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$designModule$studyType)) {
+      study_type <- ctgovdata[[i]]$protocolSection$designModule$studyType
+    } else {
+      study_type <- NA
+    }
+
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$designModule$designInfo$allocation)) {
+        allocation <- ctgovdata[[i]]$protocolSection$designModule$designInfo$allocation
+    } else {
+        allocation <- NA
+    }
 
     if (! rlang::is_null(ctgovdata[[i]]$protocolSection$designModule$designInfo$interventionModel)) {
       intervention_model <- ctgovdata[[i]]$protocolSection$designModule$designInfo$interventionModel
@@ -120,10 +146,17 @@ extract_basic_info <- function (ctgovdata) {
       intervention_model <- NA
     }
 
-    masking <- ctgovdata[[i]]$protocolSection$designModule$designInfo$maskingInfo$masking
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$designModule$designInfo$maskingInfo$masking)) {
+      masking <- ctgovdata[[i]]$protocolSection$designModule$designInfo$maskingInfo$masking
+    } else {
+      masking <- NA
+    }
 
-    primary_purpose <- ctgovdata[[i]]$protocolSection$designModule$designInfo$primaryPurpose
-
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$designModule$designInfo$primaryPurpose)) {
+      primary_purpose <- ctgovdata[[i]]$protocolSection$designModule$designInfo$primaryPurpose
+    } else {
+      primary_purpose <- NA
+    }
     start_date <- ctgovdata[[i]]$protocolSection$statusModule$startDateStruct$date
 
     if (! rlang::is_null(ctgovdata[[i]]$protocolSection$statusModule$startDateStruct$type)) {
