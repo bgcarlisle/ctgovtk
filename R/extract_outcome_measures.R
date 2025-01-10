@@ -38,20 +38,36 @@ extract_outcome_measures <- function (ctgovdata) {
   for (i in 1:length(ctgovdata)) {
     
     nctid <- ctgovdata[[i]]$protocolSection$identificationModule$nctId
-    
+
     ## Get the primary outcomes
-    primary <- ctgovdata[[i]]$protocolSection$outcomesModule$primaryOutcome %>%
-      purrr::map(tibble::as_tibble) %>%
-      purrr::reduce(dplyr::full_join) %>%
-      dplyr::mutate("nctid" = nctid) %>%
-      dplyr::mutate(outcome_rank = "primary")
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$outcomesModule$primaryOutcome)) {
+      primary <- ctgovdata[[i]]$protocolSection$outcomesModule$primaryOutcome %>%
+        purrr::map(tibble::as_tibble) %>%
+        purrr::reduce(dplyr::full_join) %>%
+        dplyr::mutate("nctid" = nctid) %>%
+        dplyr::mutate(outcome_rank = "primary")
+    } else {
+      primary <- tibble::tribble(
+        ~measure,
+        ~description,
+        ~timeFrame
+      )
+    }
 
     ## Get the secondary outcomes
-    secondary <- ctgovdata[[i]]$protocolSection$outcomesModule$secondaryOutcomes %>%
-      purrr::map(tibble::as_tibble) %>%
-      purrr::reduce(dplyr::full_join) %>%
-      dplyr::mutate("nctid" = nctid) %>%
-      dplyr::mutate(outcome_rank = "secondary")
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$outcomesModule$secondaryOutcomes)) {
+      secondary <- ctgovdata[[i]]$protocolSection$outcomesModule$secondaryOutcomes %>%
+        purrr::map(tibble::as_tibble) %>%
+        purrr::reduce(dplyr::full_join) %>%
+        dplyr::mutate("nctid" = nctid) %>%
+        dplyr::mutate(outcome_rank = "secondary")      
+    } else {
+      secondary <- tibble::tribble(
+        ~measure,
+        ~description,
+        ~timeFrame
+      )
+    }
 
     outcome_measures <- outcome_measures %>%
       dplyr::bind_rows(primary) %>%
