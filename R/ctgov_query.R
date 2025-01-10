@@ -36,7 +36,6 @@ ctgov_query <- function (query) {
 
     while(continue_to_next_page) {
 
-      message(i)
       i <- i+1
 
       if (next_page_token != "") {
