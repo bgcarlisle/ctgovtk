@@ -200,7 +200,7 @@ ctgov_query(
         sep = " AND "
     )
 ) %>%
-    extract_docs(ctgovdata)
+    extract_docs()
 
 ```
 
