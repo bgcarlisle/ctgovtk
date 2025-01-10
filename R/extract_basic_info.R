@@ -69,13 +69,19 @@ extract_basic_info <- function (ctgovdata) {
   ## the trial data
   for (i in 1:length(ctgovdata)) {
         
-      nctid <- ctgovdata[[i]]$protocolSection$identificationModule$nctId
+    nctid <- ctgovdata[[i]]$protocolSection$identificationModule$nctId
 
-      message(nctid)
+    if (! rlang::is_null(ctgovdata[[i]]$protocol$identificationModule$briefTitle)) {
+      brief_title <- ctgovdata[[i]]$protocol$identificationModule$briefTitle
+    } else {
+      brief_title <- NA
+    }
 
-    brief_title <- ctgovdata[[i]]$protocol$identificationModule$briefTitle
-
-    official_title <- ctgovdata[[i]]$protocol$identificationModule$officialTitle
+    if (! rlang::is_null(ctgovdata[[i]]$protocol$identificationModule$officialTitle)) {
+      official_title <- ctgovdata[[i]]$protocol$identificationModule$officialTitle          
+    } else {
+      official_title <- NA
+    }
 
     overall_status <- ctgovdata[[i]]$protocol$statusModule$overallStatus
 
@@ -157,7 +163,12 @@ extract_basic_info <- function (ctgovdata) {
     } else {
       primary_purpose <- NA
     }
-    start_date <- ctgovdata[[i]]$protocolSection$statusModule$startDateStruct$date
+
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$statusModule$startDateStruct$date)) {
+      start_date <- ctgovdata[[i]]$protocolSection$statusModule$startDateStruct$date
+    } else {
+        start_date <- NA
+    }
 
     if (! rlang::is_null(ctgovdata[[i]]$protocolSection$statusModule$startDateStruct$type)) {
       start_date_type <- ctgovdata[[i]]$protocolSection$statusModule$startDateStruct$type
@@ -165,13 +176,29 @@ extract_basic_info <- function (ctgovdata) {
       start_date_type <- NA
     }
 
-    pc_date <- ctgovdata[[i]]$protocolSection$statusModule$primaryCompletionDateStruct$date
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$statusModule$primaryCompletionDateStruct$date)) {
+      pc_date <- ctgovdata[[i]]$protocolSection$statusModule$primaryCompletionDateStruct$date
+    } else {
+        pc_date <- NA
+    }
 
-    pc_date_type <- ctgovdata[[i]]$protocolSection$statusModule$primaryCompletionDateStruct$type
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$statusModule$primaryCompletionDateStruct$type)) {
+      pc_date_type <- ctgovdata[[i]]$protocolSection$statusModule$primaryCompletionDateStruct$type
+    } else {
+      pc_date_type <- NA
+    }
 
-    fp_date <- ctgovdata[[i]]$protocolSection$statusModule$studyFirstPostDateStruct$date
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$statusModule$studyFirstPostDateStruct$date)) {
+      fp_date <- ctgovdata[[i]]$protocolSection$statusModule$studyFirstPostDateStruct$date
+    } else {
+        fp_date <- NA
+    }
 
-    fp_date_type <- ctgovdata[[i]]$protocolSection$statusModule$studyFirstPostDateStruct$type
+    if (! rlang::is_null(ctgovdata[[i]]$protocolSection$statusModule$studyFirstPostDateStruct$type)) {
+      fp_date_type <- ctgovdata[[i]]$protocolSection$statusModule$studyFirstPostDateStruct$type
+    } else {
+        fp_date_type <- NA
+    }
 
     trial_data <- trial_data %>%
       dplyr::bind_rows(
