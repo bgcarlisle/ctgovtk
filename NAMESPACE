@@ -3,6 +3,7 @@
 export(ctgov_ncts)
 export(ctgov_query)
 export(extract_basic_info)
+export(extract_docs)
 export(extract_outcome_measures)
 importFrom(magrittr,"%>%")
 importFrom(rlang,.data)

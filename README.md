@@ -162,6 +162,48 @@ ctgov_ncts(c("NCT06112340", "NCT01714739")) %>%
   extract_outcome_measures()
 ```
 
+### `extract_docs()`
+
+This function takes an ordered list of the type produced by the
+functions `ctgov_ncts()` or `ctgov_query()` and extracts attached
+study documents for each one, indexed by NCT Number, and returns a
+data frame with one row per document per trial and 11 columns:
+`nctid`, the NCT Number for the trial in question, `typeAbbrev`, the
+abbreviation for the type of study document, `hasProtocol`, a Boolean
+indicating whether that document contains the study protocol,
+`hasSap`, a Boolean indicating whether that document contains the
+statistical analysis plan, `hasIcf`, a Boolean indicating whether that
+document contains an informed consent form, `label`, a label for the
+document, `date`, a date associated with the document, `uploadDate`,
+the date that the document was uploaded to ClinicalTrials.gov,
+`filename`, the filename associated with the document in question,
+`size`, the number of bytes that the file in question would take up on
+a hard disk and `url`, the hyperlink to the download location of the
+document in question. In the case that there is no file data for the
+set of documents provided, the `url` column will not be generated and
+only 10 columns will be returned.
+
+```
+library(tidyverse)
+library(ctgovtk)
+
+ctgov_query(
+    paste(
+        ## Interventional studies
+        "AREA[StudyType]COVER[FullMatch]INTERVENTIONAL",
+        ## First posted in 2024 or later
+        "AREA[StudyFirstPostDate]RANGE[2024-01-01, MAX]",
+        ## With an SAP, protocol or IC form
+        "AREA[LargeDocHasSAP]TRUE",
+        "AREA[LargeDocHasProtocol]TRUE",
+        "AREA[LargeDocHasICF]TRUE",
+        sep = " AND "
+    )
+) %>%
+    extract_docs(ctgovdata)
+
+```
+
 ## How to cite `ctgovtk`
 
 Here is a BibTeX entry for `ctgovtk`:
