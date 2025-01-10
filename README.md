@@ -161,3 +161,18 @@ library(tidyverse)
 ctgov_ncts(c("NCT06112340", "NCT01714739")) %>%
   extract_outcome_measures()
 ```
+
+## How to cite `ctgovtk`
+
+Here is a BibTeX entry for `ctgovtk`:
+
+```
+@Manual{bgcarlisle-ctgovtk,
+  Title          = {A toolkit for interacting with ClinicalTrials.gov},
+  Author         = {Carlisle, Benjamin Gregory},
+  Organization   = {The Grey Literature},
+  Address        = {Montreal, Canada},
+  url            = {https://github.com/bgcarlisle/ctgovtk},
+  year           = 2025
+}
+```
