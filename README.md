@@ -16,7 +16,7 @@ library(ctgovtk)
 
 ## ClinicalTrials.gov API
 
-This package is a wrapper and tools for the ClinicalTrials.gov API, which is documented at <https://clinicaltrials.gov/data-api/api>.
+This package is a wrapper and tools for the ClinicalTrials.gov API, which is documented at <https://clinicaltrials.gov/data-api/api> and <https://clinicaltrials.gov/data-api/about-api/study-data-structure>.
 
 ## Functions provided by `ctgovtk`
 
