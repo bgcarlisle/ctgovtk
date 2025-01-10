@@ -176,3 +176,10 @@ Here is a BibTeX entry for `ctgovtk`:
   year           = 2025
 }
 ```
+
+If you use my software in your research and you found it useful, I
+would take it as a kindness if you cited it.
+
+Best,
+
+Benjamin Gregory Carlisle PhD
