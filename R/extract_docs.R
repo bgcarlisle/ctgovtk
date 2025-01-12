@@ -55,13 +55,17 @@ extract_docs <- function (ctgovdata) {
     
     nctid <- ctgovdata[[i]]$protocolSection$identificationModule$nctId
 
-    study_docs <- study_docs %>%
-      dplyr::bind_rows(
-        ctgovdata[[i]]$documentSection$largeDocumentModule$largeDocs %>%
-          purrr::map(tibble::as_tibble) %>%
-          purrr::reduce(dplyr::full_join) %>%
-          dplyr::mutate("nctid" = nctid)
-      )
+    if (! rlang::is_null(ctgovdata[[i]]$documentSection$largeDocumentModule$largeDocs)) {
+
+      study_docs <- study_docs %>%
+        dplyr::bind_rows(
+          ctgovdata[[i]]$documentSection$largeDocumentModule$largeDocs %>%
+            purrr::map(tibble::as_tibble) %>%
+            purrr::reduce(dplyr::full_join) %>%
+            dplyr::mutate("nctid" = nctid)
+        )
+      
+    }
     
   }
 
