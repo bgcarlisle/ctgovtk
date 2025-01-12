@@ -151,6 +151,17 @@ more than one per intervention, these are collapsed and deliminated by
 there is more than one per intervention, these are collapsed and
 deliminated by "|").
 
+Example:
+
+```
+library(tidyverse)
+library(ctgovtk)
+
+ctgov_ncts(c("NCT01454934", "NCT05105412")) %>% 
+  extract_interventions()
+
+```
+
 
 ### `extract_outcome_measures()`
 
