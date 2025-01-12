@@ -136,6 +136,22 @@ trial_data <- extract_basic_info(result)
 
 ```
 
+### `extract_interventions()`
+
+This function takes an ordered list of the type produced by the
+functions `ctgov_ncts()` or `ctgov_query()` and extracts interventions
+for each one, indexed by their NCT Number, and returns a data frame
+with one row per outcome measure per trial and 5 columns: `nctid`, the
+NCT Number for the trial in question, `type`, e.g. DRUG, BEHAVIOURAL,
+OTHER, DEVICE, etc., `name`, the name of the intervention or drug,
+`description`, a longer description of the intervention,
+`armGroupLabels`, labels applied to the arm groups (where there is
+more than one per intervention, these are collapsed and deliminated by
+"|"), `otherNames`, other names applied to the interventions (where
+there is more than one per intervention, these are collapsed and
+deliminated by "|").
+
+
 ### `extract_outcome_measures()`
 
 This function takes an ordered list of the type produced by the
