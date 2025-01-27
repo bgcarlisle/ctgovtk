@@ -1,7 +1,8 @@
 #' Extract drug name
 #'
 #' @param intervention A character string containing an unprocessed
-#'   intervention name (e.g. "Aspirin 150 mg")
+#'   intervention name (e.g. "Aspirin 150 mg" will return "Aspirin")
+#'   or NA in the case that there is none
 #'
 #' @return A character string containing the drug name, if any
 #'
@@ -16,7 +17,6 @@ extract_drug_name <- function(intervention) {
 
     ## Failure strings: If the intervention matches the following
     ## strings, return NA
-
     failure <- c(
       "^investigational agent$",
       "^chemotherapy$",
@@ -26,7 +26,8 @@ extract_drug_name <- function(intervention) {
       "^injection$",
       "^treatment$",
       "^imaging$",
-      "^(high|low) dose$"
+      "^(high|low) dose$",
+      "^biopsy$"
     )
 
     ## Loop through the ways to fail, and return NA if appropriate
