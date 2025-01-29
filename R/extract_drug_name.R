@@ -33,49 +33,52 @@ extract_drug_name <- function(intervention) {
       ~extract,
 
       ## Matches "sunitinib malate"
-      "^([A-Za-z0-9- ]+)$",
-      "^([A-Za-z0-9- ]+)$",
+      "^([A-Za-z0-9 -]+)$",
+      "^([A-Za-z0-9 -]+)$",
 
       ## Matches "Drug: sunitinib malate"
-      "^drug: ([A-Za-z0-9- ]+)$",
-      "^drug: ([A-Za-z0-9- ]+)$",
+      "^drug: ([A-Za-z0-9 -]+)$",
+      "^drug: ([A-Za-z0-9 -]+)$",
 
       ## Matches "sunitinib malate (drug)"
-      "^([A-Za-z0-9- ]+) \\(drug\\)$",
-      "^([A-Za-z0-9- ]+) \\(drug\\)$",
+      "^([A-Za-z0-9 -]+) \\(drug\\)$",
+      "^([A-Za-z0-9 -]+) \\(drug\\)$",
 
       ## Matches "sunitinib malate and sorafenib tosylate"
-      "^([A-Za-z0-9- ]+) and ([A-Za-z0-9- ]+)$",
-      "^([A-Za-z0-9- ]+) and ([A-Za-z0-9- ]+)$",
+      "^([A-Za-z0-9 -]+) and ([A-Za-z0-9 -]+)$",
+      "^([A-Za-z0-9 -]+) and ([A-Za-z0-9 -]+)$",
       
       ## Matches "sunitinib malate or sorafenib tosylate"
-      "^([A-Za-z0-9- ]+) or ([A-Za-z0-9- ]+)$",
-      "^([A-Za-z0-9- ]+) or ([A-Za-z0-9- ]+)$",
+      "^([A-Za-z0-9 -]+) or ([A-Za-z0-9 -]+)$",
+      "^([A-Za-z0-9 -]+) or ([A-Za-z0-9 -]+)$",
 
       ## Matches "sunitinib malate plus sorafenib tosylate"
-      "^([A-Za-z0-9- ]+) plus ([A-Za-z0-9- ]+)$",
-      "^([A-Za-z0-9- ]+) plus ([A-Za-z0-9- ]+)$",
+      "^([A-Za-z0-9 -]+) plus ([A-Za-z0-9 -]+)$",
+      "^([A-Za-z0-9 -]+) plus ([A-Za-z0-9 -]+)$",
 
       ## Matches "sunitinib malate plus modified sorafenib tosylate"
-      "^([A-Za-z0-9- ]+) plus modified ([A-Za-z0-9- ]+)$",
-      "^([A-Za-z0-9- ]+) plus modified ([A-Za-z0-9- ]+)$",
+      "^([A-Za-z0-9 -]+) plus modified ([A-Za-z0-9 -]+)$",
+      "^([A-Za-z0-9 -]+) plus modified ([A-Za-z0-9 -]+)$",
 
       ## Matches "sunitinib malate with sorafenib tosylate"
-      "^([A-Za-z0-9- ]+) with ([A-Za-z0-9- ]+)$",
-      "^([A-Za-z0-9- ]+) with ([A-Za-z0-9- ]+)$",
+      "^([A-Za-z0-9 -]+) with ([A-Za-z0-9 -]+)$",
+      "^([A-Za-z0-9 -]+) with ([A-Za-z0-9 -]+)$",
 
       ## Matches "sunitinib malate + sorafenib tosylate"
-      "^([A-Za-z0-9- ]+) + ([A-Za-z0-9- ]+)$",
-      "^([A-Za-z0-9- ]+) + ([A-Za-z0-9- ]+)$"
+      "^([A-Za-z0-9 -]+) \\+ ([A-Za-z0-9 -]+)$",
+      "^([A-Za-z0-9 -]+) \\+ ([A-Za-z0-9 -]+)$",
 
       ## Matches "sunitinib malate+sorafenib tosylate"
-      "^([A-Za-z0-9- ]+)+([A-Za-z0-9- ]+)$",
-      "^([A-Za-z0-9- ]+)+([A-Za-z0-9- ]+)$"
+      "^([A-Za-z0-9 -]+)\\+([A-Za-z0-9 -]+)$",
+      "^([A-Za-z0-9 -]+)\\+([A-Za-z0-9 -]+)$",
 
       ## Matches "300 mg sunitinib malate"
+      "^[0-9 ]+mg ([A-Za-z0-9 -]+)$",
+      "^[0-9 ]+mg ([A-Za-z0-9 -]+)$"
       ## Matches "sunitinib malate 300 mg"
       ## Matches "sunitinib malate 300 mg tablet"
-      ## Matches "sunitinib malate, sorafenib tosylate, eribulin mesylate"
+      ## Matches "sunitinib malate, sorafenib tosylate, eribulin
+      ## mesylate"
       
     )
 
