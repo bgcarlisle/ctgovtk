@@ -129,13 +129,13 @@ extract_drug_names <- function(intervention) {
         "\\b\\d+(\\.?\\d*)?\\s?(mg/kg|mg/ml|mg/m2|mg|ml|Tablet|Tablets)\\b",
         ignore_case = TRUE
       ), " ") %>%
-      stringr::str_replace_all("\\bCohort\\s*[A-Za-z0-9]+\\b", "") %>%
-      stringr::str_replace_all("\\bArm\\s*[A-Za-z0-9]+\\b", "") %>%
+      stringr::str_replace_all("\\b(c|C)ohort\\s*[A-Za-z0-9]+\\b", "") %>%
+      stringr::str_replace_all("\\b(A|a)rm\\s*[A-Za-z0-9]+\\b", "") %>%
       stringr::str_replace_all("\\s[0-9]+%\\s", "") %>%
       stringr::str_replace_all("\\([0-9]+%\\s", "(") %>%
       stringr::str_replace_all("\\s[0-9]+%\\)", ")") %>%
       stringr::str_replace_all("(\\s|\\(|\\))[0-9]+%(\\s|\\(|\\))", "") %>%
-      stringr::str_replace_all("\\b\\d* Day Cycle\\b", "") %>%
+      stringr::str_replace_all("\\b\\d* (d|D)ay (c|C)ycle\\b", "") %>%
       stringr::str_replace_all(stringr::regex("\\banti-[A-Za-z0-9-]+\\b", ignore_case = TRUE), "") %>%
       stringr::str_replace_all("\\b[A-Za-z0-9-]+(\\s?|-)(t|T)argeted (c|C)heckpoint (i|I)nhibitor\\b", "") %>%
       stringr::str_replace_all("\\b[A-Za-z0-9-]+(\\s?|-)(t|Targeted) (i|I)nhibitor\\b", "") %>%
