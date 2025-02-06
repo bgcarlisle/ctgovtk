@@ -245,8 +245,20 @@ Example:
 library(tidyverse)
 library(ctgovtk)
 
+extract_drug_names("Aspirin 150 mg")
+## "Aspirin"
+
+extract_drug_names("Paclitaxel 45 mg/m^2")
+## "Paclitaxel"
+
+extract_drug_names("Questionnaire administration")
+## NA
+
+extract_drug_names("Combination of two marketed drugs (irinotecan and cisplatin)")
+## "irinotecan" "cisplatin"
+
 ctgov_ncts(
-    c("NCT04119336", "NCT03333746")
+    c("NCT04119336", "NCT03333746", "NCT01998035")
   ) %>% 
   extract_interventions() %>%
   rowwise() %>%
