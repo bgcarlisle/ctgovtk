@@ -45,6 +45,7 @@ extract_drug_names <- function(intervention) {
       "fixed repeated dose",
       "fixed dose",
       "repeated dose",
+      "dose level [A-Za-z0-9]+",
       "Pharmacological",
       "Laboratory",
       "Biomarker",

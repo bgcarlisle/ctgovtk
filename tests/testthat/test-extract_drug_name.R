@@ -880,4 +880,14 @@ test_that(
   }
 )
 
+test_that(
+  "Lenalidomide and Gemcitabine (Dose level 11)",
+  {
+    expect_equal(
+      extract_drug_names("Lenalidomide and Gemcitabine (Dose level 11)"),
+      c("Lenalidomide", "Gemcitabine")
+    )
+  }
+)
+
 
