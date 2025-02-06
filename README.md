@@ -230,6 +230,36 @@ ctgov_query(
 
 ```
 
+### `extract_drug_names()`
+
+This function extracts named drug names from an "intervention"
+character string, such as in the column provided by the
+`extract_interventions()` function. This function attempts to strip
+out dosing, route, and other descriptors, and returns a character
+string in case of a single drug name found, or a list of character
+strings in case there are many drug names found.
+
+Example:
+
+```
+library(tidyverse)
+library(ctgovtk)
+
+ctgov_ncts(
+    c("NCT04119336", "NCT03333746")
+  ) %>% 
+  extract_interventions() %>%
+  rowwise() %>%
+  mutate(
+    drug_names = paste(
+	  extract_drug_names(name),
+	  collapse="; "
+    )
+  ) %>%
+  select(nctid, name, drug_names)
+
+```
+
 ## How to cite `ctgovtk`
 
 Here is a BibTeX entry for `ctgovtk`:
