@@ -165,7 +165,7 @@ test_that(
   {
     expect_equal(
       extract_drug_names("ADI-PEG 20 plus modified FOLFOX6"),
-      c("ADI-PEG 20", "modified FOLFOX6")
+      c("ADI-PEG 20", "FOLFOX6")
     )
   }
 )
@@ -569,4 +569,315 @@ test_that(
     )
   }
 )
+
+test_that(
+  "IBI310 (anti-CTLA-4 antibody)",
+  {
+    expect_equal(
+      extract_drug_names("IBI310 (anti-CTLA-4 antibody)"),
+      "IBI310"
+    )
+  }
+)
+
+test_that(
+  "Sintilimab(anti-PD-1 antibody)",
+  {
+    expect_equal(
+      extract_drug_names("Sintilimab(anti-PD-1 antibody)"),
+      "Sintilimab"
+    )
+  }
+)
+
+test_that(
+  "Low Dose Fractionated Radiation Therapy",
+  {
+    expect_equal(
+      extract_drug_names("Low Dose Fractionated Radiation Therapy"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "IDO1 Inhibitor BMS-986205",
+  {
+    expect_equal(
+      extract_drug_names("IDO1 Inhibitor BMS-986205"),
+      "BMS-986205"
+    )
+  }
+)
+
+test_that(
+  "FGFR Inhibitor AZD4547",
+  {
+    expect_equal(
+      extract_drug_names("FGFR Inhibitor AZD4547"),
+      "AZD4547"
+    )
+  }
+)
+
+test_that(
+  "Sintilimab Combined With Docetaxel",
+  {
+    expect_equal(
+      extract_drug_names("Sintilimab Combined With Docetaxel"),
+      c("Sintilimab", "Docetaxel")
+    )
+  }
+)
+
+test_that(
+  "Brentuximab Vedotin - induction",
+  {
+    expect_equal(
+      extract_drug_names("Brentuximab Vedotin - induction"),
+      "Brentuximab Vedotin"
+    )
+  }
+)
+
+test_that(
+  "Modulated Electro-Hyperthermia (mEHT)",
+  {
+    expect_equal(
+      extract_drug_names("Modulated Electro-Hyperthermia (mEHT)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "TCM Herbal Decoction (Shi Pi)",
+  {
+    expect_equal(
+      extract_drug_names("TCM Herbal Decoction (Shi Pi)"),
+      "Shi Pi"
+    )
+  }
+)
+
+test_that(
+  "Arm A : Gemcitabine + Pemetrexed",
+  {
+    expect_equal(
+      extract_drug_names("Arm A : Gemcitabine + Pemetrexed"),
+      c("Gemcitabine", "Pemetrexed")
+    )
+  }
+)
+
+test_that(
+  "EBV-specific T cells (EBV-CTLs)",
+  {
+    expect_equal(
+      extract_drug_names("EBV-specific T cells (EBV-CTLs)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "ModraDoc006/r",
+  {
+    expect_equal(
+      extract_drug_names("ModraDoc006/r"),
+      "ModraDoc006"
+    )
+  }
+)
+
+test_that(
+  "intrapleural docetaxel administration",
+  {
+    expect_equal(
+      extract_drug_names("intrapleural docetaxel administration"),
+      "docetaxel"
+    )
+  }
+)
+
+test_that(
+  "Chromogenic in situ hybridization",
+  {
+    expect_equal(
+      extract_drug_names("Chromogenic in situ hybridization"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Atezolizumab (MPDL3280A), an Engineered Anti-PD-L1 Antibody",
+  {
+    expect_equal(
+      extract_drug_names("Atezolizumab (MPDL3280A), an Engineered Anti-PD-L1 Antibody"),
+      c("Atezolizumab", "MPDL3280A")
+    )
+  }
+)
+
+test_that(
+  "Autologous Stem Cell Transplant (ASCT)",
+  {
+    expect_equal(
+      extract_drug_names("Autologous Stem Cell Transplant (ASCT)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Anti-B7H1 Monoclonal Antibody MEDI4736",
+  {
+    expect_equal(
+      extract_drug_names("Anti-B7H1 Monoclonal Antibody MEDI4736"),
+      "MEDI4736"
+    )
+  }
+)
+
+test_that(
+  "Pressurized IntraPeritoneal Air-flow Chemotherapy (PIPAC) increasing single dose",
+  {
+    expect_equal(
+      extract_drug_names("Pressurized IntraPeritoneal Air-flow Chemotherapy (PIPAC) increasing single dose"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "BIND-014 (docetaxel nanoparticles for injectable suspension)",
+  {
+    expect_equal(
+      extract_drug_names("BIND-014 (docetaxel nanoparticles for injectable suspension)"),
+      c("BIND-014", "docetaxel")
+    )
+  }
+)
+
+test_that(
+  "Belantamab mafodotin lyophilized powder",
+  {
+    expect_equal(
+      extract_drug_names("Belantamab mafodotin lyophilized powder"),
+      "Belantamab mafodotin"
+    )
+  }
+)
+
+test_that(
+  "I-DAC (Intermediate dose cytarabine)",
+  {
+    expect_equal(
+      extract_drug_names("I-DAC (Intermediate dose cytarabine)"),
+      c("I-DAC", "cytarabine")
+    )
+  }
+)
+
+test_that(
+  "Paclitaxel 45 mg/m^2",
+  {
+    expect_equal(
+      extract_drug_names("Paclitaxel 45 mg/m^2"),
+      "Paclitaxel"
+    )
+  }
+)
+
+test_that(
+  "Lenvatinib matching placebo",
+  {
+    expect_equal(
+      extract_drug_names("Lenvatinib matching placebo"),
+      "Lenvatinib"
+    )
+  }
+)
+
+test_that(
+  "Questionnaire administration",
+  {
+    expect_equal(
+      extract_drug_names("Questionnaire administration"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Quality-of-life assessment",
+  {
+    expect_equal(
+      extract_drug_names("Quality-of-life assessment"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Omaveloxolone Capsules (2.5 mg/capsule)",
+  {
+    expect_equal(
+      extract_drug_names("Omaveloxolone Capsules (2.5 mg/capsule)"),
+      "Omaveloxolone"
+    )
+  }
+)
+
+test_that(
+  "RomiDEPsin 10 MG/M2",
+  {
+    expect_equal(
+      extract_drug_names("RomiDEPsin 10 MG/M2"),
+      "RomiDEPsin"
+    )
+  }
+)
+
+test_that(
+  "Combination of varlilumab and nivolumab",
+  {
+    expect_equal(
+      extract_drug_names("Combination of varlilumab and nivolumab"),
+      c("varlilumab", "nivolumab")
+    )
+  }
+)
+
+test_that(
+  "CAR-CD19 T Cells",
+  {
+    expect_equal(
+      extract_drug_names("CAR-CD19 T Cells"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "MT-3724 Phase 1",
+  {
+    expect_equal(
+      extract_drug_names("MT-3724 Phase 1"),
+      "MT-3724"
+    )
+  }
+)
+
+test_that(
+  "MT-3724 Phase 1",
+  {
+    expect_equal(
+      extract_drug_names("MT-3724 Phase II"),
+      "MT-3724"
+    )
+  }
+)
+
 
