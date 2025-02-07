@@ -890,4 +890,482 @@ test_that(
   }
 )
 
+test_that(
+  "Intervention C Daridorexant",
+  {
+    expect_equal(
+      extract_drug_names("Intervention C Daridorexant"),
+      "Daridorexant"
+    )
+  }
+)
 
+test_that(
+  "Extended Consultation for apremilast",
+  {
+    expect_equal(
+      extract_drug_names("Extended Consultation for apremilast"),
+      "apremilast"
+    )
+  }
+)
+
+test_that(
+  "Quantitative Sensory Test 2",
+  {
+    expect_equal(
+      extract_drug_names("Quantitative Sensory Test 2"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Prednisone tablet",
+  {
+    expect_equal(
+      extract_drug_names("Prednisone tablet"),
+      "Prednisone"
+    )
+  }
+)
+
+test_that(
+  "Heart rate synchronized motor imagery music",
+  {
+    expect_equal(
+      extract_drug_names("Heart rate synchronized motor imagery music"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "LNA043 Dosing Regimen A",
+  {
+    expect_equal(
+      extract_drug_names("LNA043 Dosing Regimen A"),
+      "LNA043"
+    )
+  }
+)
+
+test_that(
+  "Middle meningeal artery embolization",
+  {
+    expect_equal(
+      extract_drug_names("Middle meningeal artery embolization"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Standard Dose (SD) RSVt vaccine",
+  {
+    expect_equal(
+      extract_drug_names("Standard Dose (SD) RSVt vaccine"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "LUM 2.6 Imaging Device",
+  {
+    expect_equal(
+      extract_drug_names("LUM 2.6 Imaging Device"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Conventional Physiotherapy",
+  {
+    expect_equal(
+      extract_drug_names("Conventional Physiotherapy"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Clinical decisions support",
+  {
+    expect_equal(
+      extract_drug_names("Clinical decisions support"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Pramipexole 0.088mg/tid",
+  {
+    expect_equal(
+      extract_drug_names("Pramipexole 0.088mg/tid"),
+      "Pramipexole"
+    )
+  }
+)
+
+test_that(
+  "Evaluation of circulating donor free DNA in the recipient's blood (Dd-cfDNA: donor-derived cell free DNA)",
+  {
+    expect_equal(
+      extract_drug_names("Evaluation of circulating donor free DNA in the recipient's blood (Dd-cfDNA: donor-derived cell free DNA)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Mandibular advancement Device",
+  {
+    expect_equal(
+      extract_drug_names("Mandibular advancement Device"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Enhanced usual care (EUC)",
+  {
+    expect_equal(
+      extract_drug_names("Enhanced usual care (EUC)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Wedge 1",
+  {
+    expect_equal(
+      extract_drug_names("Wedge 1"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Positron Emission Tomography",
+  {
+    expect_equal(
+      extract_drug_names("Positron Emission Tomography"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Web-based Aerobic Exercise Program",
+  {
+    expect_equal(
+      extract_drug_names("Web-based Aerobic Exercise Program"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "My Pelvic Plan website",
+  {
+    expect_equal(
+      extract_drug_names("My Pelvic Plan website"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "TTYP01 single ascending doses",
+  {
+    expect_equal(
+      extract_drug_names("TTYP01 single ascending doses"),
+      "TTYP01"
+    )
+  }
+)
+
+test_that(
+  "TTYP01, up to 120 mg",
+  {
+    expect_equal(
+      extract_drug_names("TTYP01, up to 120 mg"),
+      "TTYP01"
+    )
+  }
+)
+
+test_that(
+  "Commercially available cigarette",
+  {
+    expect_equal(
+      extract_drug_names("Commercially available cigarette"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Cooking Intervention",
+  {
+    expect_equal(
+      extract_drug_names("Dual then single task situation"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Partial mastectomy plus additional Shave Margin",
+  {
+    expect_equal(
+      extract_drug_names("Partial mastectomy plus additional Shave Margin"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "0.9% sodium chloride",
+  {
+    expect_equal(
+      extract_drug_names("0.9% sodium chloride"),
+      "sodium chloride"
+    )
+  }
+)
+
+test_that(
+  "Substance Use and Health Risk Intervention (SUHRI)",
+  {
+    expect_equal(
+      extract_drug_names("Substance Use and Health Risk Intervention (SUHRI)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Pseudoword learning paradigm task",
+  {
+    expect_equal(
+      extract_drug_names("Pseudoword learning paradigm task"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Exercise",
+  {
+    expect_equal(
+      extract_drug_names("Exercise"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Topical Diclofenac",
+  {
+    expect_equal(
+      extract_drug_names("Topical Diclofenac"),
+      "Diclofenac"
+    )
+  }
+)
+
+test_that(
+  "Platelet-Rich-Plasma (PRP)",
+  {
+    expect_equal(
+      extract_drug_names("Platelet-Rich-Plasma (PRP)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Waiting period with usual care",
+  {
+    expect_equal(
+      extract_drug_names("Waiting period with usual care"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Dietary counseling",
+  {
+    expect_equal(
+      extract_drug_names("Dietary counseling"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Guideline Directed Medical Therapy for Heart Failure (GDMT)",
+  {
+    expect_equal(
+      extract_drug_names("Guideline Directed Medical Therapy for Heart Failure (GDMT)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Second Placebo",
+  {
+    expect_equal(
+      extract_drug_names("Second Placebo"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Second Placebo",
+  {
+    expect_equal(
+      extract_drug_names("Second Placebo"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "active sham stimulation",
+  {
+    expect_equal(
+      extract_drug_names("active sham stimulation"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Discontinuation of antiplatelet agent group",
+  {
+    expect_equal(
+      extract_drug_names("Discontinuation of antiplatelet agent group"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Compound heating strategy",
+  {
+    expect_equal(
+      extract_drug_names("Compound heating strategy"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Interactive film",
+  {
+    expect_equal(
+      extract_drug_names("Interactive film"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Nurse Counseling Based on the Chronic Care Model (CCM)",
+  {
+    expect_equal(
+      extract_drug_names("Nurse Counseling Based on the Chronic Care Model (CCM)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Web-based diabetic foot education based on health promotion model",
+  {
+    expect_equal(
+      extract_drug_names("Web-based diabetic foot education based on health promotion model"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Face to face diabetic foot education based on health promotion model",
+  {
+    expect_equal(
+      extract_drug_names("Face to face diabetic foot education based on health promotion model"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Cow's milk",
+  {
+    expect_equal(
+      extract_drug_names("Cow's milk"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Oat drink",
+  {
+    expect_equal(
+      extract_drug_names("Oat drink"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Inactive Placebo Oral Capsule",
+  {
+    expect_equal(
+      extract_drug_names("Inactive Placebo Oral Capsule"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Cognitive Behavioral Therapy (CBT)",
+  {
+    expect_equal(
+      extract_drug_names("Cognitive Behavioral Therapy (CBT)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Functional magnetic resonance imaging (fMRI)",
+  {
+    expect_equal(
+      extract_drug_names("Functional magnetic resonance imaging (fMRI)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Proton magnetic resonance spectroscopy (MRS) Imaging",
+  {
+    expect_equal(
+      extract_drug_names("Proton magnetic resonance spectroscopy (MRS) Imaging"),
+      NA
+    )
+  }
+)
