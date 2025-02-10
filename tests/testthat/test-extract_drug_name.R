@@ -19,6 +19,26 @@ test_that(
 )
 
 test_that(
+  "N,N-Dimethyltryptamine",
+  {
+    expect_equal(
+      extract_drug_names("N,N-Dimethyltryptamine"),
+      "N,N-Dimethyltryptamine"
+    )
+  }
+)
+
+test_that(
+  "sorafenib, sunitinib",
+  {
+    expect_equal(
+      extract_drug_names("sorafenib, sunitinib"),
+      c("sorafenib", "sunitinib")
+    )
+  }
+)
+
+test_that(
   "Donafenib 200mg",
   {
     expect_equal(
@@ -166,6 +186,26 @@ test_that(
     expect_equal(
       extract_drug_names("ADI-PEG 20 plus modified FOLFOX6"),
       c("ADI-PEG 20", "FOLFOX6")
+    )
+  }
+)
+
+test_that(
+  "aspirin plus tylenol",
+  {
+    expect_equal(
+      extract_drug_names("aspirin plus tylenol"),
+      c("aspirin", "tylenol")
+    )
+  }
+)
+
+test_that(
+  "sunitinib plus sorafenib plus dexamethasone",
+  {
+    expect_equal(
+      extract_drug_names("sunitinib plus sorafenib plus dexamethasone"),
+      c("sunitinib", "sorafenib", "dexamethasone")
     )
   }
 )
@@ -515,7 +555,7 @@ test_that(
   {
     expect_equal(
       extract_drug_names("Cohort A: varlilumab & ipilimumab; Cohort B: varlilumab, ipilimumab, CDX-1401 & poly-ICLC"),
-      c("varlilumab", "ipilimumab", "varlilumab", "ipilimumab", "CDX-1401", "poly-ICLC")
+      c("varlilumab", "ipilimumab", "CDX-1401", "poly-ICLC")
     )
   }
 )
@@ -1369,3 +1409,664 @@ test_that(
     )
   }
 )
+
+test_that(
+  "Normal Education Material",
+  {
+    expect_equal(
+      extract_drug_names("Normal Education Material"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Low-fat meal",
+  {
+    expect_equal(
+      extract_drug_names("Low-fat meal"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Thai Foot Massage",
+  {
+    expect_equal(
+      extract_drug_names("Low-fat meal"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "18F FDG PET/CT",
+  {
+    expect_equal(
+      extract_drug_names("18F FDG PET/CT"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Vicryl-plus, monocryl-plus, PDS-plus (Triclosan-coated Sutures)",
+  {
+    expect_equal(
+      extract_drug_names("Vicryl-plus, monocryl-plus, PDS-plus (Triclosan-coated Sutures)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Vicryl, monocryl, PDS (not coated with triclosan)",
+  {
+    expect_equal(
+      extract_drug_names("Vicryl, monocryl, PDS (not coated with triclosan)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "anti-CD19 CAR-T cells",
+  {
+    expect_equal(
+      extract_drug_names("anti-CD19 CAR-T cells"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Autologous Plasmablasts (B cells)",
+  {
+    expect_equal(
+      extract_drug_names("Autologous Plasmablasts (B cells)"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Croq'Santé nutrition education program",
+  {
+    expect_equal(
+      extract_drug_names("Croq'Santé nutrition education program"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Nicotine Replacement Product",
+  {
+    expect_equal(
+      extract_drug_names("Nicotine Replacement Product"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Abdominal Massage",
+  {
+    expect_equal(
+      extract_drug_names("Abdominal Massage"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Patient Education",
+  {
+    expect_equal(
+      extract_drug_names("Patient Education"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Demineralized Dentin Allograft",
+  {
+    expect_equal(
+      extract_drug_names("Demineralized Dentin Allograft"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Smoking cessation",
+  {
+    expect_equal(
+      extract_drug_names("Smoking cessation"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Statin (such as Simvastatin, Atorvastatin, Rosuvastatin, Pravastatin)",
+  {
+    expect_equal(
+      extract_drug_names("Statin (such as Simvastatin, Atorvastatin, Rosuvastatin, Pravastatin)"),
+      c("Simvastatin", "Atorvastatin", "Rosuvastatin", "Pravastatin")
+    )
+  }
+)
+
+test_that(
+  "A mental health art exhibition",
+  {
+    expect_equal(
+      extract_drug_names("A mental health art exhibition"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "printed or online education materials",
+  {
+    expect_equal(
+      extract_drug_names("printed or online education materials"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Non-culprit-lesion revascularization",
+  {
+    expect_equal(
+      extract_drug_names("Non-culprit-lesion revascularization"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Efgartigimod PH20 SC - prefilled syringe",
+  {
+    expect_equal(
+      extract_drug_names("Efgartigimod PH20 SC - prefilled syringe"),
+      "Efgartigimod PH20 SC"
+    )
+  }
+)
+
+test_that(
+  "Continuous Nebulization of Salbutamol",
+  {
+    expect_equal(
+      extract_drug_names("Continuous Nebulization of Salbutamol"),
+      "Salbutamol"
+    )
+  }
+)
+
+test_that(
+  "Dyad Plus",
+  {
+    expect_equal(
+      extract_drug_names("Dyad Plus"),
+      "Dyad Plus"
+    )
+  }
+)
+
+test_that(
+  "Reminder Focused Positive Psychiatry",
+  {
+    expect_equal(
+      extract_drug_names("Reminder Focused Positive Psychiatry"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "3D Kidney model",
+  {
+    expect_equal(
+      extract_drug_names("3D Kidney model"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "BAY2757556 (Larotrectinib, Vitrakvi)",
+  {
+    expect_equal(
+      extract_drug_names("BAY2757556 (Larotrectinib, Vitrakvi)"),
+      c("BAY2757556", "Larotrectinib", "Vitrakvi")
+    )
+  }
+)
+
+test_that(
+  "Open-Label Extension PLS240",
+  {
+    expect_equal(
+      extract_drug_names("Open-Label Extension PLS240"),
+      "PLS240"
+    )
+  }
+)
+
+test_that(
+  "sham High energy density pulse electromagnetic field",
+  {
+    expect_equal(
+      extract_drug_names("sham High energy density pulse electromagnetic field"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Placebo matching BI 1815368",
+  {
+    expect_equal(
+      extract_drug_names("Placebo matching BI 1815368"),
+      "BI 1815368"
+    )
+  }
+)
+
+test_that(
+  "Placebo Low Level Laser Therapy",
+  {
+    expect_equal(
+      extract_drug_names("Placebo Low Level Laser Therapy"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "MyMammogram decision aid",
+  {
+    expect_equal(
+      extract_drug_names("MyMammogram decision aid"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Midazolam 2.5 mg oromucosal solution",
+  {
+    expect_equal(
+      extract_drug_names("Midazolam 2.5 mg oromucosal solution"),
+      "Midazolam"
+    )
+  }
+)
+
+test_that(
+  "Atezolizumab 1200 mg e.v. q21",
+  {
+    expect_equal(
+      extract_drug_names("Atezolizumab 1200 mg e.v. q21"),
+      "Atezolizumab"
+    )
+  }
+)
+
+test_that(
+  "Tadalafil 5 mg tablets with a digital tool.",
+  {
+    expect_equal(
+      extract_drug_names("Tadalafil 5 mg tablets with a digital tool."),
+      "Tadalafil"
+    )
+  }
+)
+
+test_that(
+  "In-Person Mindfulness-based Group Sessions",
+  {
+    expect_equal(
+      extract_drug_names("In-Person Mindfulness-based Group Sessions"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Subject's Current Diabetes Therapy",
+  {
+    expect_equal(
+      extract_drug_names("Subject's Current Diabetes Therapy"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Non-surgical periodontal treatment",
+  {
+    expect_equal(
+      extract_drug_names("Non-surgical periodontal treatment"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Subjective assessments",
+  {
+    expect_equal(
+      extract_drug_names("Subjective assessments"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "ABBV-CLS-7262 Dose 1",
+  {
+    expect_equal(
+      extract_drug_names("ABBV-CLS-7262 Dose 1"),
+      "ABBV-CLS-7262"
+    )
+  }
+)
+
+test_that(
+  "Flu Seasonal /SARS-CoV-2 mRNA Dose 1",
+  {
+    expect_equal(
+      extract_drug_names("Flu Seasonal /SARS-CoV-2 mRNA Dose 1"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Phase 2 selected Investigational Flu Seasonal/SARS-CoV-2 mRNA",
+  {
+    expect_equal(
+      extract_drug_names("Phase 2 selected Investigational Flu Seasonal/SARS-CoV-2 mRNA"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Superior laryngeal nerve block - Intervention (Bupivacaine and triamcinolone acetonide suspension)",
+  {
+    expect_equal(
+      extract_drug_names("Superior laryngeal nerve block - Intervention (Bupivacaine and triamcinolone acetonide suspension)"),
+      c("Bupivacaine", "triamcinolone acetonide")
+    )
+  }
+)
+
+test_that(
+  "Mobile Application with Interactive Nurse Support",
+  {
+    expect_equal(
+      extract_drug_names("Mobile Application with Interactive Nurse Support"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Mobile Health (mHealth) Patient-Reported Outcome (PRO) tool",
+  {
+    expect_equal(
+      extract_drug_names("Mobile Health (mHealth) Patient-Reported Outcome (PRO) tool"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "6-weeks CBT smoking cessation programme",
+  {
+    expect_equal(
+      extract_drug_names("6-weeks CBT smoking cessation programme"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Long-term drug therapy within a therapeutic community",
+  {
+    expect_equal(
+      extract_drug_names("Long-term drug therapy within a therapeutic community"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "lumbosacral transforaminal epidural injection at the level of L4-5, L5-S1, or S1 neural foramina",
+  {
+    expect_equal(
+      extract_drug_names("lumbosacral transforaminal epidural injection at the level of L4-5, L5-S1, or S1 neural foramina"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "APrevent® VOIS-Implant",
+  {
+    expect_equal(
+      extract_drug_names("APrevent® VOIS-Implant"),
+      "APrevent"
+    )
+  }
+)
+
+test_that(
+  "CBD Day 1",
+  {
+    expect_equal(
+      extract_drug_names("CBD Day 1"),
+      "CBD"
+    )
+  }
+)
+
+test_that(
+  "Bevacizumab or Bevacizumab biosimilar",
+  {
+    expect_equal(
+      extract_drug_names("Bevacizumab or Bevacizumab biosimilar"),
+      "Bevacizumab"
+    )
+  }
+)
+
+test_that(
+  "Placebo matched to ocrelizumab",
+  {
+    expect_equal(
+      extract_drug_names("Placebo matched to ocrelizumab"),
+      "ocrelizumab"
+    )
+  }
+)
+
+test_that(
+  "PS setting strategy in pressure-support ventilated patients",
+  {
+    expect_equal(
+      extract_drug_names("PS setting strategy in pressure-support ventilated patients"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "cGMP-AAs (20 g of protein equivalent) + 50 g of low-protein bread + 160 g of unpeeled apple",
+  {
+    expect_equal(
+      extract_drug_names("cGMP-AAs (20 g of protein equivalent) + 50 g of low-protein bread + 160 g of unpeeled apple"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "PBI Radiotherapy 6 Gy",
+  {
+    expect_equal(
+      extract_drug_names("PBI Radiotherapy 6 Gy"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "CNTO 2476 (6.0 * 10^4 cells)",
+  {
+    expect_equal(
+      extract_drug_names("CNTO 2476 (6.0 * 10^4 cells)"),
+      "CNTO 2476"
+    )
+  }
+)
+
+test_that(
+  "1:1 ratio for Treatment Group and Control Group",
+  {
+    expect_equal(
+      extract_drug_names("1:1 ratio for Treatment Group and Control Group"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "JNJ-42756493 Prototype Formulation I (G-025)",
+  {
+    expect_equal(
+      extract_drug_names("JNJ-42756493 Prototype Formulation I (G-025)"),
+      c("JNJ-42756493", "G-025")
+    )
+  }
+)
+
+test_that(
+  "Remimazolam besylate and low-dose Esketamine",
+  {
+    expect_equal(
+      extract_drug_names("Remimazolam besylate and low-dose Esketamine"),
+      c("Remimazolam besylate", "Esketamine")
+    )
+  }
+)
+
+test_that(
+  "Remimazolam besylate and Medium dose Esketamine",
+  {
+    expect_equal(
+      extract_drug_names("Remimazolam besylate and Medium dose Esketamine"),
+      c("Remimazolam besylate", "Esketamine")
+    )
+  }
+)
+
+test_that(
+  "Mono drug group of Rosuvastatin 20 mg",
+  {
+    expect_equal(
+      extract_drug_names("Mono drug group of Rosuvastatin 20 mg"),
+      "Rosuvastatin"
+    )
+  }
+)
+
+test_that(
+  "Mobile health app",
+  {
+    expect_equal(
+      extract_drug_names("Mobile health app"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Culturally tailored resilience-building intervention",
+  {
+    expect_equal(
+      extract_drug_names("Culturally tailored resilience-building intervention"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Low Level Light Therapy",
+  {
+    expect_equal(
+      extract_drug_names("Low Level Light Therapy"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "IV Glofitamab",
+  {
+    expect_equal(
+      extract_drug_names("IV Glofitamab"),
+      "Glofitamab"
+    )
+  }
+)
+
+test_that(
+  "0.1ml/kg normal saline",
+  {
+    expect_equal(
+      extract_drug_names("0.1ml/kg normal saline"),
+      "normal saline"
+    )
+  }
+)
+
+test_that(
+  "Study Visit 1",
+  {
+    expect_equal(
+      extract_drug_names("Study Visit 1"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Radiation of 45 Grays on 5 weeks",
+  {
+    expect_equal(
+      extract_drug_names("Radiation of 45 Grays on 5 weeks"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Tocilizumab treatment",
+  {
+    expect_equal(
+      extract_drug_names("Tocilizumab treatment"),
+      "Tocilizumab"
+    )
+  }
+)
+
