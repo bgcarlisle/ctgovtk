@@ -163,9 +163,8 @@ extract_drug_names <- function(intervention) {
         "\\bNotch\\b",
         "\\bInactive\\b",
         "\\bMinimally invasive\\b",
-        "\\bintravenous solution\\b",
-        "\\bsolution\\b",
-        "\\bmonotherapy\\b",
+        "\\bSolution\\b",
+        "\\bMonotherapy\\b",
         "\\bMono\\b",
         "\\bgroup of\\b",
         "\\bcombination of\\b",
@@ -186,8 +185,8 @@ extract_drug_names <- function(intervention) {
         "\\bwithout\\b",
         "\\bMatched to\\b",
         "\\bTo match\\b",
-        "\\bformerly\\b",
-        "\\bmonoclonal\\b",
+        "\\bFormerly\\b",
+        "\\bMonoclonal\\b",
         "\\bantibody\\b",
         "\\bmodified\\b",
         "\\bradiation\\b",
@@ -249,10 +248,10 @@ extract_drug_names <- function(intervention) {
         "\\bcommercially available\\b",
         "\\bopen sinus lifting\\b",
         "\\bquantitative sensory test [A-Za-z0-9]\\b",
-        "\\bvignette\\b",
-        "\\bdiary\\b",
-        "\\bdairy\\b",
-        "\\blog\\b",
+        "\\bVignette\\b",
+        "\\bDiary\\b",
+        "\\bDairy\\b",
+        "\\bLog\\b",
         "\\blow(\\s|-)fat\\b",
         "\\bhigh(\\s|-)fat\\b",
         "\\bFatty meal\\b",
@@ -264,9 +263,6 @@ extract_drug_names <- function(intervention) {
         "\\bmedical examination\\b",
         "\\b\\d* day cycle\\b",
         "\\b[A-Za-z0-9\\s]+ embolization$\\b",
-        "\\b[A-Za-z0-9-]+(\\s?|-)targeted checkpoint inhibitor\\b",
-        "\\b[A-Za-z0-9-]+(\\s?|-)inhibitor\\b",
-        "\\binhibitor\\b",
         "\\b[A-Za-z0-9-]+(\\s?|-)specific\\b",
         "\\banti-[A-Za-z0-9-]+\\b",
         "\\barm\\s*[A-Za-z0-9]+\\b",
@@ -308,7 +304,7 @@ extract_drug_names <- function(intervention) {
       }
       
       intervention <- stringr::str_trim(intervention)
-
+n
       ## Replace conjunctions with a double comma
       intervention <- stringr::str_replace_all(
         intervention,
@@ -319,6 +315,7 @@ extract_drug_names <- function(intervention) {
         ",,"
       )
 
+      ## The case of "plus" is more complicated
       intervention <- stringr::str_replace_all(
         intervention,
         stringr::regex(
@@ -334,8 +331,8 @@ extract_drug_names <- function(intervention) {
         stringr::str_extract_all(drug_regex) %>%
         unlist()
       
-      ## To remove after matching; order matters (higher in the list is
-      ## removed first)
+      ## Remove the entire item in `matches` if it matches anything
+      ## here; order matters (higher in the list is removed first)
       remove_after_matching <- c(
         "^Injection$",
         "^Cohort$",
@@ -688,7 +685,7 @@ extract_drug_names <- function(intervention) {
         "^Bright light$",
         "^Glasses$",
         "\\bCardiologist$",
-        "^Rubber accelerators$",
+        "\\bAccelerators$",
         "\\bFeedback$",
         "\\bDiscussion$",
         "^Participation\\b",
@@ -704,7 +701,8 @@ extract_drug_names <- function(intervention) {
         "\\bOf \\d+ Grays on\\b",
         "^Silkworm pupa$",
         "\\bReporting$",
-        "\\bDevice$"
+        "\\bDevice$",
+        "\\bInhibitor$"
       )
       
       ## Remove the `exclude terms`
@@ -718,6 +716,23 @@ extract_drug_names <- function(intervention) {
 
       ## Remove anything that's a single character
       matches <- matches[nchar(matches) > 1]
+
+      ## Remove cases where one of the matches is an acryonym for the
+      ## others
+      if (length(matches) > 0) {
+        for (k in 1:length(matches)) {
+          match_of_interest <- matches[[k]]
+          other_matches <- matches[-k]
+
+          other_matches_acronym <- substr(other_matches, 1, 1) %>%
+            paste(collapse="")
+
+          if (match_of_interest == other_matches_acronym) {
+            matches <- matches[-k]
+          }
+          
+        }        
+      }
       
       ## Return matches if any, otherwise NA
       if (length(matches) > 0) {

@@ -2139,3 +2139,23 @@ test_that(
     )
   }
 )
+
+test_that(
+  "Sunitinib + Gefitinib (SG)",
+  {
+    expect_equal(
+      extract_drug_names("Sunitinib + Gefitinib (SG)"),
+      c("Sunitinib", "Gefitinib")
+    )
+  }
+)
+
+test_that(
+  "Aurora A Kinase Inhibitor LY3295668",
+  {
+    expect_equal(
+      extract_drug_names("Aurora A Kinase Inhibitor LY3295668"),
+      c("LY3295668")
+    )
+  }
+)
