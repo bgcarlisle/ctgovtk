@@ -1865,7 +1865,7 @@ test_that(
   {
     expect_equal(
       extract_drug_names("APrevent® VOIS-Implant"),
-      "APrevent"
+      NA
     )
   }
 )
@@ -2070,3 +2070,72 @@ test_that(
   }
 )
 
+test_that(
+  "Paclitaxel + Carboplatin every 3 weeks",
+  {
+    expect_equal(
+      extract_drug_names("Paclitaxel + Carboplatin every 3 weeks"),
+      c("Paclitaxel", "Carboplatin")
+    )
+  }
+)
+
+test_that(
+  "Paclitaxel + Carboplatin every 3 weeks",
+  {
+    expect_equal(
+      extract_drug_names("Paclitaxel + Carboplatin every 3 weeks"),
+      c("Paclitaxel", "Carboplatin")
+    )
+  }
+)
+
+test_that(
+  "nab-paclitaxel IV",
+  {
+    expect_equal(
+      extract_drug_names("nab-paclitaxel IV"),
+      c("nab-paclitaxel")
+    )
+  }
+)
+
+test_that(
+  "PharmaJet Tropis® device",
+  {
+    expect_equal(
+      extract_drug_names("PharmaJet Tropis® device"),
+      NA
+    )
+  }
+)
+
+test_that(
+  "Placebo of aprepitant",
+  {
+    expect_equal(
+      extract_drug_names("Placebo of aprepitant"),
+      "aprepitant"
+    )
+  }
+)
+
+test_that(
+  "Topical resiquimod 0.06%",
+  {
+    expect_equal(
+      extract_drug_names("Topical resiquimod 0.06%"),
+      "resiquimod"
+    )
+  }
+)
+
+test_that(
+  "KN026 30 mg/kg Q3W",
+  {
+    expect_equal(
+      extract_drug_names("KN026 30 mg/kg Q3W"),
+      "KN026"
+    )
+  }
+)

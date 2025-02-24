@@ -46,16 +46,20 @@ extract_drug_names <- function(intervention) {
       ), ""
     ) %>%
       stringr::str_replace_all("^\\d+(\\.?\\d*)?%\\s", "") %>% ## "0.9% sodium chloride"
-      stringr::str_replace_all("\\s\\d+(\\.?\\d*)?%\\s", "") %>% ## "drug 10% A"
+      stringr::str_replace_all("\\s\\d+(\\.?\\d*)?%(\\s|$)", "") %>% ## "drug 10% A"
       stringr::str_replace_all("\\(\\d+(\\.?\\d*)?%\\s", "(") %>% ## "drug (10% A)"
       stringr::str_replace_all("\\s\\d+(\\.?\\d*)?%\\)", ")") %>% ## "drug (A 10%)"
       stringr::str_replace_all("(\\s|\\(|\\))\\d+(\\.?\\d*)?%(\\s|\\(|\\))", "") ## "drug (10%)"
       
       ## To remove before pulling out matches
       remove_before_matching <- c(
+        "\u00AE", ## The (R) sign
         "(?<!\\w)e\\.v\\.(?!\\w)",
         "(?<!\\w)i\\.v\\.(?!\\w)",
-        "^IV ",
+        "\\bQ[0-9]+W\\b",
+        "\\bQ[0-9]+D\\b",
+        "\\bIV\\b",
+        "\\bevery\\b",
         "\\b\\d+(\\.?\\d*)?(-|\\s)?week(s)?\\b",
         "\\bq(\\s)?\\d+(\\.?\\d*)?\\b",
         "\\bDay [0-9]+\\b",
@@ -102,6 +106,7 @@ extract_drug_names <- function(intervention) {
         "\\bOptional\\b",
         "\\bOptionnal\\b",
         "\\bpressurized\\b",
+        "\\bIntercalated\\b",
         "\\bHigh energy\\b",
         "\\bLow energy\\b",
         "\\bDensity pulse\\b",
@@ -212,6 +217,7 @@ extract_drug_names <- function(intervention) {
         "\\blyophilized powder\\b",
         "\\bpowder\\b",
         "\\bplacebo matching\\b",
+        "\\bPlacebo of\\b",
         "\\bmatching placebo\\b",
         "\\bplacebo\\b",
         "\\bquality-of-life\\b",
@@ -390,7 +396,6 @@ extract_drug_names <- function(intervention) {
         "^Cricoid pressure$",
         "^Paratracheal pressure$",
         "^Cerebellar Cognitive-Affective Syndrome Scale$",
-        "^IV$",
         "^SC$",
         "[A-Za-z0-9\\s-]+ music$",
         "[A-Za-z0-9\\s-]+ recordings$",
@@ -698,7 +703,8 @@ extract_drug_names <- function(intervention) {
         "\\bBrace$",
         "\\bOf \\d+ Grays on\\b",
         "^Silkworm pupa$",
-        "\\bReporting$"
+        "\\bReporting$",
+        "\\bDevice$"
       )
       
       ## Remove the `exclude terms`
