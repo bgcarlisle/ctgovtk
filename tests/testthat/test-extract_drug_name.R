@@ -2131,11 +2131,11 @@ test_that(
 )
 
 test_that(
-  "Sunitinib + Gefitinib (SG)",
+  "Sunitinib + Aspirin + Gefitinib (SAG)",
   {
     expect_equal(
-      extract_drug_names("Sunitinib + Gefitinib (SG)"),
-      c("Sunitinib", "Gefitinib")
+      extract_drug_names("Sunitinib + Aspirin + Gefitinib (SAG)"),
+      c("Sunitinib", "Aspirin", "Gefitinib")
     )
   }
 )
