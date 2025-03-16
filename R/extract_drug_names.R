@@ -304,7 +304,7 @@ extract_drug_names <- function(intervention) {
       }
       
       intervention <- stringr::str_trim(intervention)
-n
+
       ## Replace conjunctions with a double comma
       intervention <- stringr::str_replace_all(
         intervention,
