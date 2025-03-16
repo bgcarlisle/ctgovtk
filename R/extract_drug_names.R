@@ -330,6 +330,24 @@ extract_drug_names <- function(intervention) {
         trimws() %>%
         stringr::str_extract_all(drug_regex) %>%
         unlist()
+
+      ## Replace the matching text in each item with "" (does not
+      ## remove the entire match)
+      replace_after_matching <- c(
+        "([A-Za-z0-9 -]+|)Inhibitor\\b"
+      )
+
+      for (j in 1:length(replace_after_matching)) {
+        matches <- stringr::str_replace_all(
+          matches,
+          stringr::regex(
+            replace_after_matching[[j]],
+            ignore_case = TRUE
+          ),
+          ""
+        ) %>%
+          trimws()
+      }
       
       ## Remove the entire item in `matches` if it matches anything
       ## here; order matters (higher in the list is removed first)
