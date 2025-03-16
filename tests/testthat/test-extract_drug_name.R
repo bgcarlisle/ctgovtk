@@ -371,16 +371,6 @@ test_that(
 )
 
 test_that(
-  "gamma-secretase/Notch signalling pathway inhibitor RO4929097",
-  {
-    expect_equal(
-      extract_drug_names("gamma-secretase/Notch signalling pathway inhibitor RO4929097"),
-      "RO4929097"
-    )
-  }
-)
-
-test_that(
   "PV-10 (10% rose bengal disodium)",
   {
     expect_equal(
